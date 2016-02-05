@@ -35,14 +35,15 @@ var scenes;
         };
         //MENU scene updates here
         Menu.prototype.update = function () {
+            this.removeAllChildren();
             switch (this._name) {
                 case "startgame":
                     this._textLabel = new createjs.Text("You came to know that you would find a TREASURE by going into\n PAST or FUTURE. Now you are standing in the front of a \n'TIME MACHINE' that will take you into either past or future. \nThe time machine is having two buttons PAST and FUTURE. \nSo which one will you choose?", "bold 25px Cambria", "#e1db4e");
-                    this._createObjects("timemachine", "past", "future");
+                    this._createObjects("timemachine", "past", "future"); // Provide the name of buttons and game background image
                     break;
                 case "past":
                     this._textLabel = new createjs.Text("Now, you are entered into the Past and you find yourself in the front \nof an isolated house and there is a river besides it. Then you find a \nrock on which it has mentioned that you might get a treasure either \nby entering into a house or by crossing the river. Now, which option \nyou will choose?", "bold 25px Cambria", "#c1bb2e");
-                    this._createObjects("enterhousepic", "enterhouse", "crossriver");
+                    this._createObjects("enterhousepic", "enterhouse", "crossriver"); // Provide the name of buttons and game background image
                     break;
                 case "enterhouse":
                     this._textLabel = new createjs.Text("You are standing in the hall of the house and there you see a \n wooden box and a suspicious room where you can get a \nTreasure. Now, which way you will go?", "bold 25px Cambria", "#00ff00");
@@ -101,7 +102,7 @@ var scenes;
                     this._createObjects("gamestart", "startgame", "");
                     break;
             }
-            this._newScene.update();
+            this._newScene.update(); //The new scene updated here
         };
         //Game Objects are created and added on the scene here
         Menu.prototype._createObjects = function (imageName, leftButton, rightButton) {
@@ -124,15 +125,16 @@ var scenes;
                 this._leftButton.on("click", function () { this._name = leftButton; this.update(); }, this);
             }
             else {
+                //Left button is created here
                 this._leftButton = new objects.Button(leftButton, config.Screen.CENTER_X - 200, config.Screen.CENTER_Y + 250);
                 this.addChild(this._leftButton);
+                //Right button is created here
                 this._rightButton = new objects.Button(rightButton, config.Screen.CENTER_X + 290, config.Screen.CENTER_Y + 250);
                 this.addChild(this._rightButton);
                 //Attach Button Event Listener
                 this._leftButton.on("click", function () { this._name = leftButton; this.update(); }, this);
                 this._rightButton.on("click", function () { this._name = rightButton; this.update(); }, this);
             }
-            //stage.addChild(this);
         };
         return Menu;
     })(objects.Scene);

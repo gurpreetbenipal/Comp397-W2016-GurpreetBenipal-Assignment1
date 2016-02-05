@@ -53,6 +53,7 @@ module scenes {
         //MENU scene updates here
         public update():void{
             
+            this.removeAllChildren();
               switch(this._name){       //Name of button pressed is passed
                  case "startgame":      //If the Start Game button Pressed
                     this._textLabel = new createjs.Text("You came to know that you would find a TREASURE by going into\n PAST or FUTURE. Now you are standing in the front of a \n'TIME MACHINE' that will take you into either past or future. \nThe time machine is having two buttons PAST and FUTURE. \nSo which one will you choose?","bold 25px Cambria","#e1db4e");
@@ -156,17 +157,18 @@ module scenes {
             }
             else              // If there are two buttons displayed on the screen
             {
+                //Left button is created here
                 this._leftButton = new objects.Button(leftButton,config.Screen.CENTER_X-200,config.Screen.CENTER_Y+250);
                 this.addChild(this._leftButton);
+                
+                //Right button is created here
                 this._rightButton = new objects.Button(rightButton,config.Screen.CENTER_X+290,config.Screen.CENTER_Y+250);
                 this.addChild(this._rightButton);
+                
                 //Attach Button Event Listener
                 this._leftButton.on("click",function(){this._name=leftButton;this.update();},this);
                 this._rightButton.on("click",function(){this._name=rightButton;this.update();},this);
-            }
-           
-           
-            //stage.addChild(this);
+            }   
         }
     }
 }
