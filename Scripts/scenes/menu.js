@@ -17,6 +17,7 @@ var scenes;
         //Start Method
         Menu.prototype.start = function () {
             console.log("Game Started...");
+            this._newScene = new objects.Scene();
             //Set the background image
             this._bgImage = new createjs.Bitmap("Assets/images/gamestart.png");
             //Add the background image on the screen
@@ -100,7 +101,6 @@ var scenes;
                     this._createObjects("gamestart", "startgame", "");
                     break;
             }
-            this._newScene = new objects.Scene();
             this._newScene.update();
         };
         //Game Objects are created and added on the scene here
@@ -120,6 +120,7 @@ var scenes;
             if (rightButton == "") {
                 this._leftButton = new objects.Button(leftButton, config.Screen.CENTER_X + 30, config.Screen.CENTER_Y + 220);
                 this.addChild(this._leftButton);
+                //Attach Button Event Listener
                 this._leftButton.on("click", function () { this._name = leftButton; this.update(); }, this);
             }
             else {
@@ -127,10 +128,10 @@ var scenes;
                 this.addChild(this._leftButton);
                 this._rightButton = new objects.Button(rightButton, config.Screen.CENTER_X + 290, config.Screen.CENTER_Y + 250);
                 this.addChild(this._rightButton);
+                //Attach Button Event Listener
                 this._leftButton.on("click", function () { this._name = leftButton; this.update(); }, this);
                 this._rightButton.on("click", function () { this._name = rightButton; this.update(); }, this);
             }
-            //Attach Button Event Listener
             //stage.addChild(this);
         };
         return Menu;
