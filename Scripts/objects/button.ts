@@ -33,6 +33,7 @@ module objects {
             event.currentTarget.alpha = 1.0;
         }
         
+        //Event Handler for mouse click
         onClick(event:createjs.MouseEvent):void{
             menu.update();
         }
