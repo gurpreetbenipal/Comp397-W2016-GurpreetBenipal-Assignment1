@@ -4,7 +4,7 @@ module scenes {
         
         //PRIVATE INSTANCE VARIABLES
         private _name:string;                       //Name of buttons
-        private _newScene:objects.Scene;
+        private _newScene:objects.Scene;            
         private _image : createjs.Bitmap;           //Image for each scene
         
         //Left and Right Game Buttons 
@@ -35,6 +35,7 @@ module scenes {
             //Set the background image
             //this._bgImage = new createjs.Bitmap("Assets/images/gamestart.png");
             this._bgImage = new createjs.Bitmap(assets.getResult("gamestart"));
+            
             //Add the background image on the screen
             this.addChild(this._bgImage);
             
