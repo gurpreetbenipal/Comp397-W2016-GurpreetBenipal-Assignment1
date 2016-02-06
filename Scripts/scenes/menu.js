@@ -19,7 +19,8 @@ var scenes;
             console.log("Game Started...");
             this._newScene = new objects.Scene();
             //Set the background image
-            this._bgImage = new createjs.Bitmap("Assets/images/gamestart.png");
+            //this._bgImage = new createjs.Bitmap("Assets/images/gamestart.png");
+            this._bgImage = new createjs.Bitmap(assets.getResult("gamestart"));
             //Add the background image on the screen
             this.addChild(this._bgImage);
             //Start Game Label
@@ -107,7 +108,8 @@ var scenes;
         //Game Objects are created and added on the scene here
         Menu.prototype._createObjects = function (imageName, leftButton, rightButton) {
             //Create the different image for different scenes as per the selection
-            this._image = new createjs.Bitmap("Assets/images/" + imageName + ".png");
+            //this._image = new createjs.Bitmap("Assets/images/"+imageName+".png");
+            this._image = new createjs.Bitmap(assets.getResult(imageName));
             this.addChild(this._image);
             if (this._name != "startover") {
                 this._textLabel.x = config.Screen.CENTER_X - 300;

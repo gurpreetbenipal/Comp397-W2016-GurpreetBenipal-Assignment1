@@ -9,7 +9,8 @@ var objects;
         __extends(Button, _super);
         //CONSTRUCTOR
         function Button(pathString, x, y) {
-            _super.call(this, "Assets/images/" + pathString + ".png");
+            //super("Assets/images/" + pathString + ".png");
+            _super.call(this, assets.getResult(pathString));
             this.name = pathString;
             this.x = x;
             this.y = y;
@@ -31,6 +32,7 @@ var objects;
         Button.prototype.outButton = function (event) {
             event.currentTarget.alpha = 1.0;
         };
+        //Event Handler for mouse click
         Button.prototype.onClick = function (event) {
             menu.update();
         };

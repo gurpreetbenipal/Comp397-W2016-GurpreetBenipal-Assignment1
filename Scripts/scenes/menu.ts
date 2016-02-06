@@ -31,8 +31,10 @@ module scenes {
         public start():void{
             console.log("Game Started...");
             this._newScene = new objects.Scene();
+            
             //Set the background image
-            this._bgImage = new createjs.Bitmap("Assets/images/gamestart.png");
+            //this._bgImage = new createjs.Bitmap("Assets/images/gamestart.png");
+            this._bgImage = new createjs.Bitmap(assets.getResult("gamestart"));
             //Add the background image on the screen
             this.addChild(this._bgImage);
             
@@ -50,8 +52,9 @@ module scenes {
             stage.addChild(this);
         }
         
+       
         //MENU scene updates here
-        public update():void{
+       public update():void{
             
             this.removeAllChildren();
               switch(this._name){       //Name of button pressed is passed
@@ -126,10 +129,11 @@ module scenes {
         
         //Game Objects are created and added on the scene here
         
-        private _createObjects(imageName:String, leftButton:string, rightButton:string):void
+       private _createObjects(imageName:String, leftButton:string, rightButton:string):void
         {
            //Create the different image for different scenes as per the selection
-           this._image = new createjs.Bitmap("Assets/images/"+imageName+".png");
+           //this._image = new createjs.Bitmap("Assets/images/"+imageName+".png");
+            this._image = new createjs.Bitmap(assets.getResult(imageName));
            this.addChild(this._image);
            
            

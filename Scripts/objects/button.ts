@@ -6,7 +6,8 @@ module objects {
         height: number;
         //CONSTRUCTOR
         constructor(pathString:string, x:number, y: number) {
-            super("Assets/images/" + pathString + ".png");
+            //super("Assets/images/" + pathString + ".png");
+            super(assets.getResult(pathString));
             this.name=pathString;
             this.x = x;
             this.y = y; 
